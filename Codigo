@@ -1,0 +1,49 @@
+//Control de rapidez para motor DC
+//@LaElectronicaGT
+
+const int motorPin = 9;
+const int potPin = A0;
+
+const int ledVerde = 4;
+const int ledAmarillo = 5;
+const int ledRojo = 6;
+
+int valorPotenciometro = 0;
+int velocidadPWM = 0;
+
+void setup() {
+  pinMode(motorPin, OUTPUT);
+
+  pinMode(ledVerde, OUTPUT);
+  pinMode(ledAmarillo, OUTPUT);
+  pinMode(ledRojo, OUTPUT);
+
+  analogWrite(motorPin, 0);
+}
+
+void loop() {
+  // Leer el potenciómetro y convertirlo a PWM
+  valorPotenciometro = analogRead(potPin);
+  velocidadPWM = map(valorPotenciometro, 0, 1023, 0, 255);
+
+  // Controlar la velocidad del motor
+  analogWrite(motorPin, velocidadPWM);
+
+  // Apagar todos los indicadores
+  digitalWrite(ledVerde, LOW);
+  digitalWrite(ledAmarillo, LOW);
+  digitalWrite(ledRojo, LOW);
+
+  // Indicar el nivel de velocidad seleccionado
+  if (velocidadPWM > 0 && velocidadPWM <= 85) {
+    digitalWrite(ledVerde, HIGH);
+  }
+  else if (velocidadPWM > 85 && velocidadPWM <= 170) {
+    digitalWrite(ledAmarillo, HIGH);
+  }
+  else if (velocidadPWM > 170) {
+    digitalWrite(ledRojo, HIGH);
+  }
+
+  delay(10);
+}
