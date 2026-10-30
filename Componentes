@@ -1,0 +1,20 @@
+Circuito controlador de rapidez para motor DC con indicador LED
+
+LISTA DE COMPONENTES:
+
+- 1 Arduino Nano o Uno
+- 1 Motor DC con escobillas (6V a 12V)
+- 1 MOSFET de nivel lógico (IRLZ44N o FQP30N06L)
+- 1 Potenciómetro de 10 kΩ
+- 1 Diodo de protección (1N4148 o 1N5819)
+
+- 1 LED verde
+- 1 amarillo
+- 1 rojo
+
+- 3 resistencias de 220 Ω para los LEDs.
+- 1 resistencia de 100 Ω para la compuerta del MOSFET.
+- 1 resistencia de 10 kΩ para mantener apagado el MOSFET durante el arranque.
+
+- Protoboard y cables.
+- Fuente DC adecuada al voltaje y consumo del motor (6V o 12V).
